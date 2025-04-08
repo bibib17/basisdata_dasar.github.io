@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertemuan 1 - Pengertian Basis Data</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    pre code {
+  background-color: #2d2d2d; /* warna abu gelap */
+  color: #f8f8f2;           /* teks terang */
+  padding: 1rem;
+  border-radius: 8px;
+  display: block;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace; }
+
+  .image-space {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .card {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+  @media (min-width: 768px) {
+      .image-space {
+        height: 100%;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h4, h3 {
+        font-size: 1.25rem;
+      }
+
+      .card-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body style="background-color: #f8f9fa;">
+
+  <div class="container py-5">
+    <div class="image-space mb-4"><img src="https://plus.unsplash.com/premium_photo-1681487942927-e1a2786e6036?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="db" class="img-fluid"></div>
+    <h1 class="text-center animate__animated animate__fadeInDown mb-5">Pertemuan 1 Pengertian Basis Data</h1>
+    
+    <section class="mb-5">
+      <h4 class="text-primary animate__animated animate__fadeInLeft">1. Definisi Basis Data</h2>
+      <p>Basis data adalah <strong>kumpulan data yang saling berhubungan</strong> dan disimpan secara sistematis agar mudah diakses, dikelola, dan diperbarui. Tujuannya adalah untuk menyediakan informasi yang dibutuhkan secara efisien. (ambil contoh gudang yang tersusun)</p>
+
+      <div class="alert alert-info">
+        Fungsi <strong>database</strong> (basis data) sangat penting dalam berbagai sistem informasi karena menjadi pusat penyimpanan, pengelolaan, dan pengambilan data.
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h3 class="text-success animate__animated animate__fadeInUp">🔹 1. Menyimpan Data Secara Terpusat</h3>
+      <p>Database memungkinkan penyimpanan data dalam satu tempat yang terstruktur, sehingga mudah diakses dan dikelola oleh banyak pengguna atau aplikasi.</p>
+    </section>
+
+    <section class="mb-5">
+      <h3 class="text-success animate__animated animate__fadeInUp">Jenis-jenis Database</h3>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Relational Database</h5>
+              <p><strong>Ciri utama:</strong> Menggunakan tabel (baris dan kolom)</p>
+              <p><strong>Contoh DBMS:</strong> MySQL, PostgreSQL, Oracle, SQL Server</p>
+              <p><strong>Kelebihan:</strong> Terstruktur, mendukung relasi antar tabel, kuat untuk transaksi</p>
+              <div class="bg-light p-2 rounded">🧱 Contoh: Tabel <code>Users</code> dan <code>Orders</code> yang saling berhubungan lewat <code>user_id</code></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Non-Relational / NoSQL Database</h5>
+              <p><strong>Ciri utama:</strong> Tidak menggunakan tabel tradisional. Lebih fleksibel dan cocok untuk big data</p>
+              <p><strong>Jenis:</strong> Dokumen (MongoDB), Key-Value (Redis), Column (Cassandra), Graph (Neo4j)</p>
+              <p><strong>Kelebihan:</strong> Skalabilitas tinggi, fleksibel dalam struktur data</p>
+              <div class="bg-light p-2 rounded">📦 Contoh: MongoDB menyimpan data dalam bentuk JSON-like (dokumen)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Hierarchical Database</h5>
+              <p><strong>Ciri utama:</strong> Struktur seperti pohon (parent-child)</p>
+              <p><strong>Contoh:</strong> IBM IMS</p>
+              <p><strong>Kelebihan:</strong> Cepat untuk data yang hierarkis</p>
+              <div class="bg-light p-2 rounded">🌳 Contoh: Struktur organisasi perusahaan (CEO → Manager → Karyawan)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Network Database</h5>
+              <p><strong>Ciri utama:</strong> Mirip hierarchical, tapi child bisa punya banyak parent</p>
+              <p><strong>Contoh:</strong> IDS</p>
+              <p><strong>Kelebihan:</strong> Lebih fleksibel dibanding model hierarchical</p>
+              <div class="bg-light p-2 rounded">🔗 Contoh: Produk bisa diproduksi oleh banyak supplier</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Object-Oriented Database</h5>
+              <p><strong>Ciri utama:</strong> Menyimpan data dalam bentuk objek</p>
+              <p><strong>Contoh:</strong> db4o, ObjectDB</p>
+              <p><strong>Kelebihan:</strong> Cocok untuk aplikasi berbasis objek seperti Java atau C++</p>
+              <div class="bg-light p-2 rounded">⚙️ Contoh: Menyimpan objek <code>Mobil</code> yang punya atribut dan metode</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Distributed Database</h5>
+              <p><strong>Ciri utama:</strong> Data tersebar di beberapa lokasi/server</p>
+              <p><strong>Contoh:</strong> Apache Cassandra, Google Spanner</p>
+              <p><strong>Kelebihan:</strong> Tahan terhadap kegagalan dan mendukung skala besar</p>
+              <div class="bg-light p-2 rounded">🌍 Contoh: Data e-commerce yang tersebar di server Asia, Eropa, Amerika</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Cloud Database</h5>
+              <p><strong>Ciri utama:</strong> Disimpan di cloud dan bisa diakses secara online</p>
+              <p><strong>Contoh:</strong> Firebase, Amazon RDS, Google Cloud SQL</p>
+              <p><strong>Kelebihan:</strong> Praktis, fleksibel, tidak perlu kelola infrastruktur sendiri</p>
+              <div class="bg-light p-2 rounded">☁️ Contoh: Aplikasi mobile yang pakai Firebase untuk menyimpan data user</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">🔸 Time Series Database</h5>
+              <p><strong>Ciri utama:</strong> Dioptimalkan untuk data berdasarkan waktu</p>
+              <p><strong>Contoh:</strong> InfluxDB, TimescaleDB</p>
+              <p><strong>Kelebihan:</strong> Cocok untuk data sensor, log sistem, atau analitik waktu nyata</p>
+              <div class="bg-light p-2 rounded">⏱️ Contoh: Data suhu yang dicatat setiap menit</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 - Mengelola Data dengan Efisien -->
+    <h4 class="text-success animate__animated animate__fadeInUp">🔹 2. Mengelola Data dengan Efisien</h4>
+    <p>Dengan bantuan DBMS, database dapat melakukan:</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Insert</strong> (menambahkan data baru)</li>
+      <li class="list-group-item"><strong>Update</strong> (memperbarui data)</li>
+      <li class="list-group-item"><strong>Delete</strong> (menghapus data)</li>
+      <li class="list-group-item"><strong>Retrieve</strong> (mengambil data sesuai kebutuhan)</li>
+    </ul>
+    <br>
+  <!-- Section 3 - Mendukung Integritas Data -->
+    <h4 class="text-success animate__animated animate__fadeInUp">🔹 3. Mendukung Integritas Data</h4>
+    <p>Database menjaga agar data tetap <strong>valid, konsisten, dan akurat</strong> melalui:</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Aturan validasi (constraints)</li>
+      <li class="list-group-item">Relasi antar tabel (foreign key)</li>
+      <li class="list-group-item">Normalisasi data</li>
+    </ul>
+    <br>
+  <!-- Section 4 - Mengurangi Duplikasi Data -->
+  <h4 class="text-success animate__animated animate__fadeInUp">🔹 4. Mengurangi Duplikasi Data</h4>
+    <p>Dengan struktur yang tepat dan normalisasi, database membantu <strong>menghindari pengulangan (redundansi)</strong> data yang tidak perlu.</p>
+    <br>
+  <!-- Section 5 - Meningkatkan Keamanan Data -->
+    <h4 class="text-success animate__animated animate__fadeInUp">🔹 5. Meningkatkan Keamanan Data</h4>
+    <p>Database menyediakan:</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Hak akses pengguna</strong> (siapa bisa lihat atau edit data apa)</li>
+      <li class="list-group-item"><strong>Otentikasi dan otorisasi</strong></li>
+      <li class="list-group-item"><strong>Backup dan recovery</strong> jika terjadi kerusakan</li>
+    </ul>
+    <br>
+  <!-- Section 6 - Memfasilitasi Pengambilan Keputusan -->
+    <h4 class="text-success animate__animated animate__fadeInUp">🔹 6. Memfasilitasi Pengambilan Keputusan</h4>
+    <p>Dengan menyimpan data historis dan real-time, database memungkinkan penyajian data secara cepat untuk laporan, analisis, dan pengambilan keputusan bisnis.</p>
+    <br>
+  <!-- Section 7 - Mendukung Multi-user Access -->
+    <h4 class="text-success animate__animated animate__fadeInUp">🔹 7. Mendukung Multi-user Access</h4>
+    <p>Database dapat digunakan oleh <strong>banyak pengguna secara bersamaan</strong> tanpa merusak atau mengganggu data.</p>
+    <br>
+  <!-- Section 8 - Mendukung Perkembangan Sistem -->
+    <h4 class="text-success animate__animated animate__fadeInUp">🔹 8. Mendukung Perkembangan Sistem</h4>
+    <p>Database bisa berkembang sesuai kebutuhan, baik dari segi volume data maupun kompleksitasnya. Cocok untuk sistem skala kecil hingga enterprise.</p>
+
+    <section class="container py-5 mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">2. <strong>DBMS (Database Management System)</strong></h4>
+        <p>Merupakan perangkat lunak yang digunakan untuk mengelola basis data. DBMS itu ibarat <em>otak dari sistem basis data</em> — dia yang ngatur semua proses agar data bisa disimpan, diakses, diubah, dan dijaga dengan baik. Contoh DBMS:</p>
+        <ul>
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>Oracle</li>
+            <li>SQL Server</li>
+            <li>MongoDB (untuk NoSQL)</li>
+        </ul>
+
+        <div class="alert alert-info">
+            <strong>Catatan:</strong> Pemilihan DBMS yang tepat sangat penting untuk menunjang performa dan skala sistem informasi yang dibangun.
+        </div>
+
+    
+  <h4 class="text-success mb-4 animate__animated animate__fadeInUp">🔧 <strong>Peran Utama DBMS</strong></h4>
+
+  <div class="row g-4">
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+          <h5 class="card-title"><strong>1. Menyimpan dan Mengelola Data</strong></h5>
+          <p class="card-text">DBMS menyimpan data dalam bentuk terstruktur (biasanya tabel), dan mengelola semua proses CRUD:</p>
+          <ul>
+            <li><strong>Create</strong> (buat data)</li>
+            <li><strong>Read</strong> (baca data)</li>
+            <li><strong>Update</strong> (ubah data)</li>
+            <li><strong>Delete</strong> (hapus data)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+        <div class="card-body">
+          <h5 class="card-title"><strong>2. Mengontrol Akses ke Data</strong></h5>
+          <p class="card-text">DBMS memastikan hanya <strong>pengguna yang berwenang</strong> yang bisa akses atau mengubah data:</p>
+          <ul>
+            <li>Hak akses (read/write/admin)</li>
+            <li>Otentikasi pengguna</li>
+            <li>Role-based access (contoh: admin, user, guest)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+          <h5 class="card-title"><strong>3. Menjaga Keamanan dan Integritas Data</strong></h5>
+          <ul>
+            <li>Mencegah data yang tidak valid masuk (misal angka di kolom nama)</li>
+            <li>Menjaga relasi antar data tetap konsisten</li>
+            <li>Mencegah duplikasi dan inkonsistensi data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+        <div class="card-body">
+          <h5 class="card-title"><strong>4. Memfasilitasi Transaksi Data</strong></h5>
+          <p>DBMS mendukung <strong>ACID properties</strong> dalam transaksi:</p>
+          <ul>
+            <li><strong>Atomicity:</strong> Semua langkah dalam transaksi harus sukses atau gagal semua</li>
+            <li><strong>Consistency:</strong> Data tetap valid sebelum dan sesudah transaksi</li>
+            <li><strong>Isolation:</strong> Transaksi berjalan tanpa gangguan dari transaksi lain</li>
+            <li><strong>Durability:</strong> Data tetap tersimpan meski sistem crash</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+          <h5 class="card-title"><strong>5. Backup dan Recovery</strong></h5>
+          <ul>
+            <li><strong>Backup data</strong> secara berkala</li>
+            <li><strong>Restore data</strong> jika sistem rusak atau error</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+        <div class="card-body">
+          <h5 class="card-title"><strong>6. Mengoptimalkan Kinerja Query</strong></h5>
+          <p>DBMS punya sistem untuk menyusun strategi eksekusi query terbaik (query optimizer), misalnya:</p>
+          <pre><code class="p-2 rounded d-block">
+SELECT * FROM order WHERE user_id = 1;
+          </code></pre>
+          <p class="mb-0">Hasilnya bisa ditampilkan dengan cepat karena DBMS tahu indeks mana yang dipakai.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+          <h5 class="card-title"><strong>7. Mendukung Multi-User Access</strong></h5>
+          <p>DBMS mengatur agar banyak pengguna bisa mengakses dan memodifikasi data <strong>secara bersamaan tanpa konflik.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+        <div class="card-body">
+          <h5 class="card-title"><strong>8. Abstraksi Data</strong></h5>
+          <p>DBMS menyembunyikan detail teknis penyimpanan data dari pengguna, jadi developer hanya fokus pada struktur logisnya saja, bukan teknis penyimpanannya.</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">3. Tabel</h4>
+        <p>
+          Dalam basis data relasional, <strong>tabel</strong> adalah struktur dasar yang digunakan untuk menyimpan data dalam baris (row) dan kolom (column).
+        </p>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Budi</td>
+                <td>budi@email.com</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Sinta</td>
+                <td>sinta@email.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">4. Record dan Field</h4>
+        <p>
+          <strong>Record (baris):</strong> satu unit data lengkap dalam tabel.<br>
+          <strong>Field (kolom):</strong> atribut atau karakteristik dari data.
+        </p>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">5. Primary Key</h4>
+        <p>
+          Merupakan <strong>identitas unik</strong> dari setiap record dalam tabel. Tidak boleh <code>null</code> dan harus <strong>unik</strong>.<br>
+          Contoh: kolom <code>ID</code> pada tabel pengguna.
+        </p>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">6. Foreign Key</h4>
+        <p>
+          Digunakan untuk <strong>menghubungkan dua tabel</strong>, menunjuk ke primary key dari tabel lain.
+        </p>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">7. Relasi Antar Tabel</h4>
+        <p>
+          Basis data relasional memungkinkan <strong>relasi antar tabel</strong>:
+        </p>
+        <ul>
+          <li>One-to-One</li>
+          <li>One-to-Many</li>
+          <li>Many-to-Many</li>
+        </ul>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">8. SQL (Structured Query Language)</h4>
+        <p>
+          Bahasa standar untuk mengakses dan memanipulasi basis data relasional.
+        </p>
+        <pre><code class="language-sql">
+      SELECT * FROM users WHERE email = 'budi@email.com';
+        </code></pre>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">9. Normalisasi</h4>
+        <p>
+          Proses untuk mengorganisasi data dalam database agar <strong>menghindari duplikasi</strong> dan <strong>memastikan integritas data</strong>.
+        </p>
+      </section>
+      
+      <section class="mb-5">
+        <h4 class="text-primary animate__animated animate__fadeInLeft">10. Keamanan dan Akses</h4>
+        <p>
+          Basis data menyediakan mekanisme kontrol untuk:
+        </p>
+        <ul>
+          <li>Hak akses pengguna</li>
+          <li>Enkripsi data</li>
+          <li>Backup dan recovery</li>
+        </ul>
+      </section>
+      
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
