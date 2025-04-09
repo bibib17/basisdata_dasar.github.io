@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pertemuan 2 <br> Struktur & Hierarki Basis Data</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .fade-in {
+      aNISation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .erd-box {
+      border: 2px dashed #6c757d;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #f8f9fa;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body class="bg-light text-dark">
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4 fade-in">📚 Pertemuan 2 <br> Struktur & Hierarki Basis Data</h1>
+
+    <section class="fade-in">
+      <h3>🎯 Tujuan Pembelajaran</h3>
+      <ul>
+        <li>Mengenal struktur dan hierarki data dalam basis data.</li>
+        <li>Memahami elemen-elemen seperti <strong>bit, field, record, file, tabel, skema, dan ERD</strong>.</li>
+        <li>Menggambar hierarki data dari contoh nyata.</li>
+        <li>Membuat diagram ERD sederhana berdasarkan studi kasus.</li>
+      </ul>
+    </section>
+
+    <hr class="my-4"/>
+
+    <section class="fade-in">
+      <h3>📚 Materi Pembelajaran</h3>
+
+      <div class="accordion" id="dataHierarchyAccordion">
+        <!-- Bit -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="bitHeading">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bitCollapse">
+              1. Bit
+            </button>
+          </h2>
+          <div id="bitCollapse" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              <strong>Pengertian:</strong> Unit terkecil dalam data komputer, bisa bernilai 0 atau 1. <br>
+              <strong>Contoh:</strong> Huruf 'A' disimpan sebagai 01000001 dalam bentuk bit.
+            </div>
+          </div>
+        </div>
+
+        <!-- Field -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="fieldHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fieldCollapse">
+              2. Field
+            </button>
+          </h2>
+          <div id="fieldCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Pengertian:</strong> Satuan terkecil dari informasi bermakna. <br>
+              <strong>Contoh:</strong> <code>Nama</code>, <code>NIS</code>, <code>Tanggal Lahir</code> adalah field pada data siswa.
+            </div>
+          </div>
+        </div>
+
+        <!-- Record -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="recordHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#recordCollapse">
+              3. Record
+            </button>
+          </h2>
+          <div id="recordCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Pengertian:</strong> Sekumpulan field yang saling terkait (data dari Field). <br>
+              <strong>Contoh:</strong>
+              <table class="table table-bordered mt-2">
+                <thead><tr><th>NIS</th><th>Nama</th><th>Tanggal Lahir</th></tr></thead>
+                <tbody><tr><td>12345678</td><td>Ani Wijaya</td><td>2004-01-15</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- File -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="fileHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fileCollapse">
+                4. File
+            </button>
+            </h2>
+            <div id="fileCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body">
+                <strong>Pengertian:</strong> Kumpulan dari record yang sejenis dan saling berkaitan. <br>
+                <strong>Contoh:</strong> 
+                data_siswa.
+                <br>Isi File data_siswa: 
+                <table class="table table-bordered mt-2">
+                <thead>
+                    <tr><th>NIS</th><th>Nama</th><th>Tanggal Lahir</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>12345678</td><td>Ani Wijaya</td><td>2004-01-15</td></tr>
+                    <tr><td>87654321</td><td>Budi Santoso</td><td>2003-10-22</td></tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+
+        <!-- Tabel -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="tabelHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tabelCollapse">
+                5. Tabel
+            </button>
+            </h2>
+            <div id="tabelCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body">
+                <strong>Pengertian:</strong> Representasi struktur data dalam bentuk baris dan kolom di dalam basis data relasional. <br>
+                <strong>Contoh:</strong> Tabel <code>Siswa</code> yang berisi field NIS, Nama, dan Tanggal Lahir.
+                <table class="table table-bordered mt-2">
+                <thead>
+                    <tr><th>NIS</th><th>Nama</th><th>Tanggal Lahir</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>12345678</td><td>Ani Wijaya</td><td>2004-01-15</td></tr>
+                    <tr><td>87654321</td><td>Budi Santoso</td><td>2003-10-22</td></tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+
+        <!-- Skema -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="skemaHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#skemaCollapse">
+                6. Skema
+            </button>
+            </h2>
+            <div id="skemaCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body">
+                <strong>Pengertian:</strong> Struktur atau rancangan logis dari basis data yang mendefinisikan bagaimana data diorganisasi dan bagaimana relasi antar data. <br>
+                <strong>Contoh:</strong> Skema basis data perpustakaan mencakup tabel <code>Siswa, Buku, dan Peminjaman </code>serta relasi antar tabel tersebut.
+            </div>
+            </div>
+        </div>
+
+        <!-- ERD -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="erdHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#erdCollapse">
+                7. ERD (Entity Relationship Diagram)
+            </button>
+            </h2>
+            <div id="erdCollapse" class="accordion-collapse collapse">
+            <div class="accordion-body">
+                <strong>Pengertian:</strong> Diagram yang menggambarkan hubungan antar entitas dalam sistem. <br><br>
+        
+                <strong>Komponen ERD:</strong>
+                <ul>
+                <li><strong>Entitas</strong> (kotak): Objek nyata seperti <em>Siswa</em> atau <em>Buku</em>.</li>
+                <li><strong>Relasi</strong> (belah ketupat): Hubungan antar entitas, seperti <em>meminjam</em>.</li>
+                <li><strong>Atribut</strong> (elips): Informasi yang melekat pada entitas, seperti <em>Nama Buku</em> atau <em>Tanggal Pinjam</em>.</li>
+                </ul>
+        
+                <strong>Contoh ERD:</strong><br>
+                <img src="img/ERD.png" alt="Contoh ERD Peminjaman Buku" class="img-fluid rounded border shadow-sm mt-2">
+            </div>
+            </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <hr class="my-4"/>
+
+    <section class="fade-in">
+      <h3>🧠 Aktivitas: Hierarki Data</h3>
+      <p><strong>Hierarki:</strong></p>
+      <pre>Bit → Karakter → Field → Record → File → Tabel → Skema</pre>
+      <p><strong>Ilustrasi:</strong></p>
+      <pre>
+Bit: 0/1
+→ Karakter: 'A'
+→ Field: Nama = 'Andi'
+→ Record: {NIS: 123, Nama: Andi, Alamat: Bandung}
+→ File: Kumpulan data semua siswa
+→ Tabel: Tabel Siswa
+→ Skema: Kumpulan tabel Siswa, Guru, Kelas
+      </pre>
+    </section>
+
+    <hr class="my-4"/>
+
+    <section class="fade-in">
+    <div class="erd-box">
+        <h3>✏️ Contoh ERD Sederhana Sistem Peminjaman Buku</h3>
+      
+        <h5>📘 Studi Kasus:</h5>
+        <p>Sistem peminjaman buku di perpustakaan.</p>
+      
+        <h5>🧱 Entitas:</h5>
+        <ul>
+          <li><strong>Anggota</strong>: ID_Anggota, Nama, Alamat</li>
+          <li><strong>Buku</strong>: ID_Buku, Judul, Pengarang</li>
+          <li><strong>Peminjaman</strong>: ID_Peminjaman, Tanggal Pinjam, Tanggal Kembali</li>
+        </ul>
+      
+        <h5>🔗 Relasi:</h5>
+        <p>Anggota <em>meminjam</em> Buku melalui entitas <strong>Peminjaman</strong>.</p>
+      
+        <h5>🔄 Kardinalitas:</h5>
+        <ul>
+          <li>1 Anggota bisa meminjam banyak Buku.</li>
+          <li>1 Buku bisa dipinjam oleh banyak Anggota (di waktu berbeda).</li>
+        </ul>
+      
+        <h5>📊 ERD Sederhana (Skema Teks):</h5>
+        
+          <pre>
+[Anggota] ---< (meminjam) >--- [Buku]
+    |                         |
+    |                         |
+    -------- [Peminjaman] -----
+          </pre>
+      
+        <h5>📄 Versi Teks ERD:</h5>
+          <pre>
+Anggota (ID_Anggota, Nama, Alamat)
+Buku (ID_Buku, Judul, Pengarang)
+Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
+          </pre>
+    
+      
+        <h5>🖼️ Versi Gambar ERD:</h5>
+        <img src="img/ERD.png" alt="ERD Sederhana Peminjaman Buku" class="img-fluid rounded border shadow-sm mt-2">
+    </div>
+    </section>
+      
+
+    <hr class="my-4"/>
+
+    <section class="fade-in">
+        <h3>📖 Penjelasan : </h3>
+    <div class="erd-box">  
+        <h4 class="mt-4">🧱 <strong>Entitas (Entities)</strong></h4>
+      
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+              <div class="card-body">
+                <h5 class="card-title"><strong>1. Anggota</strong></h5>
+                <p class="card-text">Merepresentasikan pengguna atau peminjam buku di perpustakaan.</p>
+                <p class="card-text"><strong>Atribut:</strong></p>
+                <ul>
+                  <li><code>ID_Anggota</code> → Kunci utama (Primary Key), unik untuk setiap anggota.</li>
+                  <li><code>Nama</code> → Nama lengkap anggota.</li>
+                  <li><code>Alamat</code> → Alamat tempat tinggal anggota.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br>
+      
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+              <div class="card-body">
+                <h5 class="card-title"><strong>2. Buku</strong></h5>
+                <p class="card-text">Merepresentasikan koleksi buku yang tersedia di perpustakaan.</p>
+                <p class="card-text"><strong>Atribut:</strong></p>
+                <ul>
+                  <li><code>ID_Buku</code> → Kunci utama, unik untuk setiap buku.</li>
+                  <li><code>Judul</code> → Judul buku.</li>
+                  <li><code>Pengarang</code> → Nama pengarang buku.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br>
+      
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+              <div class="card-body">
+                <h5 class="card-title"><strong>3. Peminjaman</strong></h5>
+                <p class="card-text">Merepresentasikan aktivitas peminjaman buku oleh anggota.</p>
+                <p class="card-text">Merupakan <strong>entitas relasi</strong> (sering disebut entitas lemah) yang menjembatani relasi antara <em>Anggota</em> dan <em>Buku</em>.</p>
+                <p class="card-text"><strong>Atribut:</strong></p>
+                <ul>
+                  <li><code>ID_Peminjaman</code> → Kunci utama untuk identifikasi transaksi peminjaman.</li>
+                  <li><code>ID_Anggota</code> → Kunci tamu (Foreign Key) dari entitas Anggota.</li>
+                  <li><code>ID_Buku</code> → Kunci tamu (Foreign Key) dari entitas Buku.</li>
+                  <li><code>Tanggal_Pinjam</code> → Tanggal buku dipinjam.</li>
+                  <li><code>Tanggal_Kembali</code> → Tanggal buku harus dikembalikan.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> 
+    </div>  
+        <hr>
+      
+        <h4 class="mt-4">🔗 <strong>Relasi (Relationships)</strong></h4>
+      
+        <h5>🔄 <strong>meminjam</strong></h5>
+        <ul>
+          <li>Menghubungkan entitas <strong>Anggota</strong> dan <strong>Buku</strong> melalui entitas <strong>Peminjaman</strong>.</li>
+          <li><strong>Tipe relasi:</strong> <em>Many-to-Many</em> (banyak ke banyak), dipecah melalui entitas perantara <strong>Peminjaman</strong>.</li>
+          <li><strong>Makna:</strong>
+            <ul>
+              <li>Seorang anggota <strong>dapat meminjam banyak buku</strong>.</li>
+              <li>Sebuah buku <strong>dapat dipinjam oleh banyak anggota</strong>, tapi <em>tidak secara bersamaan</em> (umumnya dicatat berdasarkan waktu peminjaman).</li>
+            </ul>
+          </li>
+        </ul>
+      
+        <hr>
+      
+        <h4 class="mt-4">📐 <strong>Struktur ERD (Bentuk Visual)</strong></h4>
+        <ul>
+          <li>Entitas ditampilkan sebagai <strong>kotak persegi panjang</strong>.</li>
+          <li>Relasi ditampilkan sebagai <strong>belah ketupat</strong> (diamond) dengan nama relasi <em>"meminjam"</em>.</li>
+          <li>Atribut ditampilkan dalam <strong>elips</strong> yang terhubung ke entitas.</li>
+          <li><code>Foreign key</code> (kunci tamu) berada pada entitas <strong>Peminjaman</strong> dan menunjuk ke <strong>Anggota</strong> dan <strong>Buku</strong>.</li>
+        </ul>
+      </section>
+
+      <section class="container mt-5">
+        <h2 class="mb-4">💡 <strong>Simulasi Sistem Berjalan</strong></h2>
+        <div class="row g-4">
+      
+          <!-- 1. Input Data Anggota -->
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+              <div class="card-body">
+                <h5 class="card-title"><strong>1. Input Data Anggota</strong></h5>
+                <p>Seseorang mendaftar menjadi anggota perpustakaan.</p>
+                <p><strong>📥 Input ke Tabel <code>Anggota</code>:</strong></p>
+                <pre><code class="language-sql">INSERT INTO Anggota (ID_Anggota, Nama, Alamat)
+      VALUES ('A001', 'Dewi Lestari', 'Jl. Mawar No.10');</code></pre>
+              </div>
+            </div>
+          </div>
+      
+          <!-- 2. Input Data Buku -->
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+              <div class="card-body">
+                <h5 class="card-title"><strong>2. Input Data Buku</strong></h5>
+                <p>Petugas perpustakaan menambahkan data buku ke sistem.</p>
+                <p><strong>📥 Input ke Tabel <code>Buku</code>:</strong></p>
+                <pre><code class="language-sql">INSERT INTO Buku (ID_Buku, Judul, Pengarang)
+      VALUES ('B001', 'Laskar Pelangi', 'Andrea Hirata');</code></pre>
+              </div>
+            </div>
+          </div>
+      
+          <!-- 3. Peminjaman Buku -->
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+              <div class="card-body">
+                <h5 class="card-title"><strong>3. Peminjaman Buku</strong></h5>
+                <p>Anggota <code>A001</code> meminjam buku <code>B001</code> pada tanggal 10 April 2025, dengan batas pengembalian 17 April 2025.</p>
+                <p><strong>📥 Input ke Tabel <code>Peminjaman</code>:</strong></p>
+                <pre><code class="language-sql">INSERT INTO Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
+      VALUES ('P001', 'A001', 'B001', '2025-04-10', '2025-04-17');</code></pre>
+              </div>
+            </div>
+          </div>
+      
+          <!-- 4. Melihat Data Peminjaman -->
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
+              <div class="card-body">
+                <h5 class="card-title"><strong>4. Melihat Data Peminjaman</strong></h5>
+                <p>Petugas ingin melihat semua peminjaman yang sedang aktif.</p>
+                <p><strong>📤 Query:</strong></p>
+                <pre><code class="language-sql">SELECT P.ID_Peminjaman, A.Nama, B.Judul, P.Tanggal_Pinjam, P.Tanggal_Kembali
+FROM Peminjaman P
+JOIN Anggota A ON P.ID_Anggota = A.ID_Anggota
+JOIN Buku B ON P.ID_Buku = B.ID_Buku;</code></pre>
+                <p><strong>🖥️ Output:</strong></p>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead class="table-light">
+                      <tr>
+                        <th>ID_Peminjaman</th>
+                        <th>Nama</th>
+                        <th>Judul</th>
+                        <th>Tanggal_Pinjam</th>
+                        <th>Tanggal_Kembali</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>P001</td>
+                        <td>Dewi Lestari</td>
+                        <td>Laskar Pelangi</td>
+                        <td>2025-04-10</td>
+                        <td>2025-04-17</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- 5. Pengembalian Buku -->
+          <div class="col-md-12">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+              <div class="card-body">
+                <h5 class="card-title"><strong>5. Pengembalian Buku</strong></h5>
+                <p>Saat buku dikembalikan, data bisa dihapus atau statusnya diubah.</p>
+                <p><strong>📥 Contoh Update Status: </strong> <br> (jika tabel punya kolom <code>Status</code>):</p>
+                <pre><code class="language-sql">UPDATE Peminjaman
+SET Status = 'Dikembalikan'
+WHERE ID_Peminjaman = 'P001';</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5">
+      
+      <section class="container mt-5">
+        <div class="container erd-box">
+          <div class="text-center ">
+            <h2 class="fw-bold text-primary">🔄 Proses Sirkulasi Sistem Peminjaman Buku</h2>
+            <br><p class="text-muted">Alur utama dalam sistem perpustakaan berbasis data</p>
+          </div>
+      
+          <!-- Proses Sirkulasi -->
+          <div class="row g-4">
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+                <div class="card-body d-flex">
+                    <div class="fs-1 me-3">📋</div>
+                    <div>
+                    <h5 class="fw-bold">Anggota Terdaftar</h5>
+                    <p class="mb-0 text-muted">Pengguna masuk ke dalam sistem sebagai data anggota.</p>
+                    </div>
+                </div>
+            </div>
+
+          
+
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+                <div class="card-body d-flex">
+                    <div class="fs-1 me-3">📚</div>
+                    <div>
+                    <h5 class="fw-bold">Buku Terdata</h5>
+                    <p class="mb-0 text-muted">Setiap buku disimpan dalam tabel Buku dan bisa dipinjam.</p>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+                <div class="card-body d-flex">
+                    <div class="fs-1 me-3">📦</div>
+                    <div>
+                    <h5 class="fw-bold">Peminjaman</h5>
+                    <p class="mb-0 text-muted">Dicatat di tabel Peminjaman dengan relasi ke anggota dan buku.</p>
+                    </div>
+                </div>
+            </div>
+          
+
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+                <div class="card-body d-flex">
+                    <div class="fs-1 me-3">⏰</div>
+                    <div>
+                    <h5 class="fw-bold">Batas Pengembalian</h5>
+                    <p class="mb-0 text-muted">Tiap peminjaman memiliki tanggal batas pengembalian.</p>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
+                <div class="card-body d-flex">
+                    <div class="fs-1 me-3">✅</div>
+                    <div>
+                    <h5 class="fw-bold">Pengembalian Buku</h5>
+                    <p class="mb-0 text-muted">Data pengembalian bisa ditandai atau dihapus dari tabel peminjaman.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp mb-4"><br>
+                <div class="card-header bg-info text-white row g-4"><h4>🧱 Relasi Antar Tabel</h4></div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">📘 <strong>Anggota</strong> → berisi data pengguna</li>
+                    <li class="list-group-item">📕 <strong>Buku</strong> → berisi data koleksi buku</li>
+                    <li class="list-group-item">📗 <strong>Peminjaman</strong> → sebagai <em>jembatan</em> antara Anggota dan Buku</li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class="card h-100 shadow-sm animate__animated animate__fadeInUp mb-4">
+                <div class="card-header bg-primary text-white row g-4">
+                  <h4>📌 Kesimpulan</h4>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">📗 Terjadi pada <strong>tabel Peminjaman</strong></li>
+                    <li class="list-group-item">🔑 Dengan adanya <strong>foreign key</strong> ke tabel <strong>Anggota</strong> dan <strong>Buku</strong></li>
+                    <li class="list-group-item">🔄 Menunjukkan bahwa <strong>data tidak berdiri sendiri</strong>, tapi <strong>saling terhubung</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    <hr class="my-5">
+    <section class=" container mt-5 fade-in">
+        <div class="erd-box">
+            <h3>📝 Rangkuman Pertemuan 2: Struktur dan Hierarki Basis Data</h3>
+            <ul>
+            <li>
+                <strong>Struktur Hierarki Basis Data:</strong>
+                Data disusun dalam beberapa level mulai dari:
+                <ul>
+                <li><strong>Bit:</strong> Unit terkecil data, berupa 0 atau 1.</li>
+                <li><strong>Field:</strong> Sekumpulan karakter, mewakili satu atribut (misalnya: nama mahasiswa).</li>
+                <li><strong>Record:</strong> Kumpulan field, mewakili satu entitas (misalnya: satu data mahasiswa).</li>
+                <li><strong>File:</strong> Kumpulan record yang memiliki format sama (misalnya: file data seluruh mahasiswa).</li>
+                <li><strong>Tabel:</strong> Struktur yang menyimpan data dalam bentuk baris (record) dan kolom (field).</li>
+                <li><strong>Basis Data:</strong> Kumpulan tabel yang saling berelasi dan membentuk satu sistem informasi.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Skema Basis Data:</strong> Gambaran logis tentang struktur basis data yang mencakup tabel, atribut, tipe data, dan hubungan antar tabel.
+            </li>
+            <li>
+                <strong>Entity Relationship Diagram (ERD):</strong>
+                Diagram yang menggambarkan entitas, atribut, dan relasi antar entitas dalam sistem basis data.
+                Digunakan sebagai langkah awal dalam merancang struktur basis data.
+            </li>
+            <li>
+                <strong>Relasi Antar Tabel:</strong>
+                Dihubungkan menggunakan <em>primary key</em> dan <em>foreign key</em>, misalnya:
+                <ul>
+                <li>Tabel <strong>Mahasiswa</strong> memiliki <em>NIM</em> sebagai primary key.</li>
+                <li>Tabel <strong>Peminjaman</strong> memiliki <em>NIM</em> sebagai foreign key yang mengacu ke tabel Mahasiswa.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Studi Kasus:</strong>
+                Sistem peminjaman buku perpustakaan:
+                <ul>
+                <li>Tabel <strong>Mahasiswa:</strong> Menyimpan data mahasiswa.</li>
+                <li>Tabel <strong>Buku:</strong> Menyimpan data koleksi buku.</li>
+                <li>Tabel <strong>Peminjaman:</strong> Menyimpan catatan peminjaman yang menghubungkan mahasiswa dengan buku.</li>
+                <li>Implementasi SQL digunakan untuk membuat tabel, relasi, dan menyimpan data.</li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+      </section>
+<div class="mb-5"></div>
+          
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
