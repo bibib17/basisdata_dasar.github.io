@@ -184,7 +184,7 @@
                 </ul>
         
                 <strong>Contoh ERD:</strong><br>
-                <img src="https://bibib17.github.io/basisdata_dasar.github.io/ERD.png" alt="Contoh ERD Peminjaman Buku" class="img-fluid rounded border shadow-sm mt-2">
+                <img src="img/ERD.png" alt="Contoh ERD Peminjaman Buku" class="img-fluid rounded border shadow-sm mt-2">
             </div>
             </div>
         </div>
@@ -253,7 +253,7 @@ Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
     
       
         <h5>🖼️ Versi Gambar ERD:</h5>
-        <img src="https://bibib17.github.io/basisdata_dasar.github.io/ERD.png" alt="ERD Sederhana Peminjaman Buku" class="img-fluid rounded border shadow-sm mt-2">
+        <img src="img/ERD.png" alt="ERD Sederhana Peminjaman Buku" class="img-fluid rounded border shadow-sm mt-2">
     </div>
     </section>
       
@@ -265,7 +265,7 @@ Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
     <div class="erd-box">  
         <h4 class="mt-4">🧱 <strong>Entitas (Entities)</strong></h4>
       
-        <div class="col-md-6">
+        <div class="row g-4">">
             <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
               <div class="card-body">
                 <h5 class="card-title"><strong>1. Anggota</strong></h5>
@@ -281,7 +281,7 @@ Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
           </div>
           <br>
       
-          <div class="col-md-6">
+          <div class="row g-4">
             <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
               <div class="card-body">
                 <h5 class="card-title"><strong>2. Buku</strong></h5>
@@ -297,7 +297,7 @@ Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
           </div>
           <br>
       
-          <div class="col-md-6">
+          <div class="row g-4">
             <div class="card h-100 shadow-sm animate__animated animate__fadeInRight">
               <div class="card-body">
                 <h5 class="card-title"><strong>3. Peminjaman</strong></h5>
@@ -314,35 +314,36 @@ Peminjaman (ID_Peminjaman, ID_Anggota, ID_Buku, Tanggal_Pinjam, Tanggal_Kembali)
               </div>
             </div>
           </div>
-        </div> 
-    </div>  
-        <hr>
+        </div>
       
-        <h4 class="mt-4">🔗 <strong>Relasi (Relationships)</strong></h4>
-      
-        <h5>🔄 <strong>meminjam</strong></h5>
-        <ul>
-          <li>Menghubungkan entitas <strong>Anggota</strong> dan <strong>Buku</strong> melalui entitas <strong>Peminjaman</strong>.</li>
-          <li><strong>Tipe relasi:</strong> <em>Many-to-Many</em> (banyak ke banyak), dipecah melalui entitas perantara <strong>Peminjaman</strong>.</li>
-          <li><strong>Makna:</strong>
-            <ul>
-              <li>Seorang anggota <strong>dapat meminjam banyak buku</strong>.</li>
-              <li>Sebuah buku <strong>dapat dipinjam oleh banyak anggota</strong>, tapi <em>tidak secara bersamaan</em> (umumnya dicatat berdasarkan waktu peminjaman).</li>
-            </ul>
-          </li>
-        </ul>
-      
-        <hr>
-      
-        <h4 class="mt-4">📐 <strong>Struktur ERD (Bentuk Visual)</strong></h4>
-        <ul>
-          <li>Entitas ditampilkan sebagai <strong>kotak persegi panjang</strong>.</li>
-          <li>Relasi ditampilkan sebagai <strong>belah ketupat</strong> (diamond) dengan nama relasi <em>"meminjam"</em>.</li>
-          <li>Atribut ditampilkan dalam <strong>elips</strong> yang terhubung ke entitas.</li>
-          <li><code>Foreign key</code> (kunci tamu) berada pada entitas <strong>Peminjaman</strong> dan menunjuk ke <strong>Anggota</strong> dan <strong>Buku</strong>.</li>
-        </ul>
+        <div class="erd-box">
+          <h4 class="mt-4">🔗 <strong>Relasi (Relationships)</strong></h4>
+        
+          <h5>🔄 <strong>meminjam</strong></h5>
+          <ul>
+            <li>Menghubungkan entitas <strong>Anggota</strong> dan <strong>Buku</strong> melalui entitas <strong>Peminjaman</strong>.</li>
+            <li><strong>Tipe relasi:</strong> <em>Many-to-Many</em> (banyak ke banyak), dipecah melalui entitas perantara <strong>Peminjaman</strong>.</li>
+            <li><strong>Makna:</strong>
+              <ul>
+                <li>Seorang anggota <strong>dapat meminjam banyak buku</strong>.</li>
+                <li>Sebuah buku <strong>dapat dipinjam oleh banyak anggota</strong>, tapi <em>tidak secara bersamaan</em> (umumnya dicatat berdasarkan waktu peminjaman).</li>
+              </ul>
+            </li>
+          </ul>
+        
+          <hr>
+        
+          <h4 class="mt-4">📐 <strong>Struktur ERD (Bentuk Visual)</strong></h4>
+          <ul>
+            <li>Entitas ditampilkan sebagai <strong>kotak persegi panjang</strong>.</li>
+            <li>Relasi ditampilkan sebagai <strong>belah ketupat</strong> (diamond) dengan nama relasi <em>"meminjam"</em>.</li>
+            <li>Atribut ditampilkan dalam <strong>elips</strong> yang terhubung ke entitas.</li>
+            <li><code>Foreign key</code> (kunci tamu) berada pada entitas <strong>Peminjaman</strong> dan menunjuk ke <strong>Anggota</strong> dan <strong>Buku</strong>.</li>
+          </ul>
+        </div>
+      </div>
       </section>
-
+<hr class="my-5">
       <section class="container mt-5">
         <h2 class="mb-4">💡 <strong>Simulasi Sistem Berjalan</strong></h2>
         <div class="row g-4">
