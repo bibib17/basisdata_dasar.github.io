@@ -25,6 +25,25 @@
 
   }
 
+  .instagram-button {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #E1306C; /* Warna Instagram */
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .instagram-button:hover {
+      background-color: #C13584; /* Warna gelap saat hover */
+    }
+
+    .instagram-button i {
+      margin-right: 8px;
+    }
+
   .card {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
 
@@ -431,6 +450,10 @@ SELECT * FROM order WHERE user_id = 1;
   </div>
   <!-- Tombol Klikable -->
 <div class="container text-center">
+    <a href="https://www.instagram.com/bibib_17/" target="_blank" rel="noopener noreferrer" class="instagram-button">
+    <i class="fab fa-instagram"></i>
+    Kunjungi Instagram
+  </a>
   <button class="btn btn-primary" onclick="window.open('https://bibib17.github.io/basisdata_dasar.github.io/pertemuan2.html', '_blank')">
     📊 Lanjut Belajar Materi Pertemuan Ke-2
   </button>
