@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dasar-Dasar SQL: Praktik dengan CMD dan MySQL</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    .instagram-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #0d6efd; /* Warna biru primary */
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+      margin: 10px auto; /* Center tombol di halaman */
+    }
+
+    .instagram-button:hover {
+      background-color: #0069d9; /* Biru sedikit lebih gelap saat hover */
+    }
+
+    .instagram-button i {
+      margin-right: 8px;
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .erd-box {
+      border: 2px dashed #6c757d;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #f8f9fa;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body class="bg-light text-dark">
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4">📚 Dasar-Dasar SQL: Praktik dengan CMD dan MySQL</h1>
+    
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+            <h3>1. Menghidupkan MySQL Server</h3>
+            <p>Pastikan MySQL sudah berjalan. Gunakan <strong>XAMPP Control Panel</strong>.</p>
+            <ul>
+              <li>tekan tombol <span class="badge bg-success">Start</span> untuk aktifkan <code>Apache</code> dan <code>MySQL</code> di XAMPP Control Panel.</li>
+            </ul></div></div></div></section>
+
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+            <h3>2. Membuka Command Prompt (CMD)</h3>
+            <p>Langkah-langkah:</p>
+
+            <div class="accordion" id="cmdAccordion">
+
+              <!-- Cara 1 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cara1Heading">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cara1Collapse">
+                    1. Melalui Pencarian Windows
+                  </button>
+                </h2>
+                <div id="cara1Collapse" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <strong>Langkah-langkah:</strong><br>
+                    1. Klik tombol <strong>Start</strong> atau tekan tombol <code>Windows</code> di keyboard.<br>
+                    2. Ketik <strong>"cmd"</strong> atau <strong>"Command Prompt"</strong>.<br>
+                    3. Klik aplikasi <strong>Command Prompt</strong> yang muncul di hasil pencarian.
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Cara 2 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cara2Heading">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cara2Collapse">
+                    2. Menggunakan Shortcut Keyboard
+                  </button>
+                </h2>
+                <div id="cara2Collapse" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <strong>Langkah-langkah:</strong><br>
+                    1. Tekan tombol <code>Windows + R</code> secara bersamaan untuk membuka jendela <strong>Run</strong>.<br>
+                    2. Ketik <code>cmd</code> pada kotak yang muncul.<br>
+                    3. Tekan <strong>Enter</strong> atau klik <strong>OK</strong>.
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Cara 3 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cara3Heading">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cara3Collapse">
+                    3. Melalui Task Manager
+                  </button>
+                </h2>
+                <div id="cara3Collapse" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <strong>Langkah-langkah:</strong><br>
+                    1. Tekan <code>Ctrl + Shift + Esc</code> untuk membuka <strong>Task Manager</strong>.<br>
+                    2. Klik menu <strong>File</strong> &gt; <strong>Run new task</strong>.<br>
+                    3. Ketik <code>cmd</code> lalu tekan <strong>Enter</strong> atau klik <strong>OK</strong>.
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Cara 4 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="cara4Heading">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cara4Collapse">
+                    4. Klik Kanan di Start (Windows 10/11)
+                  </button>
+                </h2>
+                <div id="cara4Collapse" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <strong>Langkah-langkah:</strong><br>
+                    1. Klik kanan pada tombol <strong>Start</strong> di pojok kiri bawah layar.<br>
+                    2. Pilih <strong>Windows Terminal</strong> atau <strong>Command Prompt</strong> dari menu yang muncul.
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+            </div></div></div></section>
+            
+
+<hr class="my-4" />
+
+<section class="fade-in">
+  <div class="erd-box">
+    <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+      <div class="card-body">
+        <h3>3. Masuk Kedalam Direktori MySQL</h3>
+        <p>Langkah-langkah:</p>
+        <pre><code>
+cd ..
+cd xampp
+cd mysql
+cd bin
+mysql -u root
+</code></pre></div></div></div></section>
+
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+            <h3>3. Menampilkan Daftar Database</h3>
+            <pre><code>SHOW DATABASES;</code></pre>
+    </div></div></div></section>
+
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+    <h3>4. Membuat Database Baru</h3>
+    <pre><code>CREATE DATABASE latihan1_sql;</code></pre>
+    </div></div></div></section>
+
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+    <h3>5. Memilih Database</h3>
+    <pre><code>USE latihan1_sql;</code></pre>
+    </div></div></div></section>
+
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+    <h3>6. Membuat Tabel Baru</h3>
+    <pre><code>CREATE TABLE siswa (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nama VARCHAR(255),
+  jenis_kelamin VARCHAR(255),
+  umur INT
+);</code></pre>
+</div></div></div></section>
+
+<hr class="my-4" />
+
+<section class="fade-in">
+  <div class="erd-box">
+    <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+      <div class="card-body">
+    <h3>7. Melihat Isi Tabel</h3>
+    <pre><code>SELECT * FROM siswa;</code></pre>
+    </div></div></div></section>
+
+    <hr class="my-4" />
+
+    <section class="fade-in">
+      <div class="erd-box">
+        <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+          <div class="card-body">
+    <h3>8. Menambahkan Data ke Tabel</h3>
+    <pre><code>INSERT INTO siswa (nama, jenis_kelamin, umur)
+VALUES
+  ('budi', 'laki-laki', 15),
+  ('ani', 'perempuan', 14),
+  ('rio', 'laki-laki', 15);</code></pre>
+  </div></div></div></section>
+
+  <hr class="my-4" />
+
+  <section class="fade-in">
+    <div class="erd-box">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+    <h3>9. Menampilkan Data Berdasarkan Kriteria</h3>
+    <pre><code>SELECT * FROM siswa WHERE jenis_kelamin = 'laki-laki';</code></pre>
+  </div></div></div></section>
+
+
+  <hr class="my-4" />
+
+  <section class="fade-in">
+    <div class="erd-box">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+    <h3>10. Menghapus Data dari Tabel</h3>
+    <pre><code>DELETE FROM siswa WHERE id = 2;</code></pre>
+  </div></div></div></section>
+
+  <hr class="my-4" />
+
+  <section class="fade-in">
+    <div class="erd-box">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">
+    <h3>11. Menambahkan Kolom Baru</h3>
+    <pre><code>ALTER TABLE siswa ADD COLUMN alamat VARCHAR(255);</code></pre>
+  </div></div></div></section>
+
+  <hr class="my-4" />
+
+  <section class="fade-in">
+    <div class="erd-box">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">  
+    <h3>12. Memperbarui Data</h3>
+    <pre><code>UPDATE siswa SET alamat = 'tembung' WHERE nama = 'budi';</code></pre>
+  </div></div></div></section>
+
+
+  <hr class="my-4" />
+
+  <section class="fade-in">
+    <div class="erd-box">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">  
+    <h3 class="mt-4">✨ Rangkuman</h3>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>No</th>
+          <th>Perintah</th>
+          <th>Fungsi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><code>SHOW DATABASES;</code></td>
+          <td>Menampilkan semua database</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><code>CREATE DATABASE</code></td>
+          <td>Membuat database baru</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><code>USE</code></td>
+          <td>Memilih database yang aktif</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><code>CREATE TABLE</code></td>
+          <td>Membuat tabel baru</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><code>SELECT * FROM</code></td>
+          <td>Menampilkan semua isi tabel</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><code>INSERT INTO</code></td>
+          <td>Menambah data ke tabel</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><code>SELECT ... WHERE</code></td>
+          <td>Menampilkan data dengan kondisi tertentu</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><code>DELETE FROM ... WHERE</code></td>
+          <td>Menghapus data tertentu</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><code>ALTER TABLE ... ADD COLUMN</code></td>
+          <td>Menambah kolom baru di tabel</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><code>UPDATE ... SET ... WHERE</code></td>
+          <td>Memperbarui data tertentu</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div></div></div></section>
+  <hr class="my-5"/>
+      <!-- Tombol Klikable -->
+      <div class="container text-center">
+        <a href="https://www.instagram.com/bibib_17/" target="_blank" rel="noopener noreferrer" class="instagram-button">
+        <i class="fab fa-instagram"></i>
+        Follow Instagram-nya Juga Ga Sih..
+      </a>
+<!--         onclick="window.open('https://bibib17.github.io/basisdata_dasar.github.io/pertemuan2.html', '_blank')" -->
+      <button class="btn btn-primary" >
+        📊 Lanjut Belajar Materi Pertemuan Ke-4
+      </button>
+    </div>
+    <hr class="my-5"/>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
