@@ -184,7 +184,7 @@ mysql -u root
       <div class="erd-box">
         <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
           <div class="card-body">
-            <h3>3. Menampilkan Daftar Database</h3>
+            <h3>4. Menampilkan Daftar Database</h3>
             <pre><code>SHOW DATABASES;</code></pre>
     </div></div></div></section>
 
@@ -194,7 +194,7 @@ mysql -u root
       <div class="erd-box">
         <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
           <div class="card-body">
-    <h3>4. Membuat Database Baru</h3>
+    <h3>5. Membuat Database Baru</h3>
     <pre><code>CREATE DATABASE latihan1_sql;</code></pre>
     </div></div></div></section>
 
@@ -204,7 +204,7 @@ mysql -u root
       <div class="erd-box">
         <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
           <div class="card-body">
-    <h3>5. Memilih Database</h3>
+    <h3>6. Memilih Database</h3>
     <pre><code>USE latihan1_sql;</code></pre>
     </div></div></div></section>
 
@@ -214,7 +214,7 @@ mysql -u root
       <div class="erd-box">
         <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
           <div class="card-body">
-    <h3>6. Membuat Tabel Baru</h3>
+    <h3>7. Membuat Tabel Baru</h3>
     <pre><code>CREATE TABLE siswa (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nama VARCHAR(255),
@@ -229,7 +229,7 @@ mysql -u root
   <div class="erd-box">
     <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
       <div class="card-body">
-    <h3>7. Melihat Isi Tabel</h3>
+    <h3>8. Melihat Isi Tabel</h3>
     <pre><code>SELECT * FROM siswa;</code></pre>
     </div></div></div></section>
 
@@ -239,7 +239,7 @@ mysql -u root
       <div class="erd-box">
         <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
           <div class="card-body">
-    <h3>8. Menambahkan Data ke Tabel</h3>
+    <h3>9. Menambahkan Data ke Tabel</h3>
     <pre><code>INSERT INTO siswa (nama, jenis_kelamin, umur)
 VALUES
   ('budi', 'laki-laki', 15),
@@ -253,7 +253,7 @@ VALUES
     <div class="erd-box">
       <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
         <div class="card-body">
-    <h3>9. Menampilkan Data Berdasarkan Kriteria</h3>
+    <h3>10. Menampilkan Data Berdasarkan Kriteria</h3>
     <pre><code>SELECT * FROM siswa WHERE jenis_kelamin = 'laki-laki';</code></pre>
   </div></div></div></section>
 
@@ -264,7 +264,7 @@ VALUES
     <div class="erd-box">
       <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
         <div class="card-body">
-    <h3>10. Menghapus Data dari Tabel</h3>
+    <h3>11. Menghapus Data dari Tabel</h3>
     <pre><code>DELETE FROM siswa WHERE id = 2;</code></pre>
   </div></div></div></section>
 
@@ -274,7 +274,7 @@ VALUES
     <div class="erd-box">
       <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
         <div class="card-body">
-    <h3>11. Menambahkan Kolom Baru</h3>
+    <h3>12. Menambahkan Kolom Baru</h3>
     <pre><code>ALTER TABLE siswa ADD COLUMN alamat VARCHAR(255);</code></pre>
   </div></div></div></section>
 
@@ -284,7 +284,7 @@ VALUES
     <div class="erd-box">
       <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
         <div class="card-body">  
-    <h3>12. Memperbarui Data</h3>
+    <h3>13. Memperbarui Data</h3>
     <pre><code>UPDATE siswa SET alamat = 'tembung' WHERE nama = 'budi';</code></pre>
   </div></div></div></section>
 
