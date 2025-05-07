@@ -9,6 +9,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+
+
   <style>
     .instagram-button {
       display: flex;
@@ -220,20 +223,87 @@
           </div>
   </div></div></div></section>
   <hr class="my-5"/>
+
+  <section class="fade-in">
+    <div class="erd-box">
+      <div class="card h-100 shadow-sm animate__animated animate__fadeInLeft">
+        <div class="card-body">  
+    <h3 class="mt-4">✨ Cara Membuat SQL Code</h3>
+<hr class="my-4" />
+<ol type="1">
+  <li><b><i>Hidupkan XAMPP</i></b>, jika sudah aktifkan <b>Apache</b> dan <b>MySQL</b>.</li>
+  <li><b><i>Masuk ke Windows Explorer</i></b> (atau yang kalian kenal dengan <b>File Manager</b>).</li>
+  <li><b><i>Buka folder instalasi XAMPP</i></b> lalu masuk ke folder <b>"htdocs"</b>.</li>
+  <li><b><i>Buat folder</i></b> atas nama kalian di dalam folder <b>"htdocs"</b> tadi (bisa dengan shortcut <b>CTRL + SHIFT + N</b>).</li>
+  <li><b><i>Buka folder kalian</i></b> di dalam <b>Visual Studio Code</b>.</li>
+  <li><b><i>Buat file baru</i></b> dengan format file <b>".sql"</b>, lalu copy kan source code dibawah, dan save</li>
+  <li><b><i>Buka browser</i></b> dan akses <b>http://localhost/phpmyadmin</b>.</li>
+  <li><b><i>Pilih database</i></b> yang ingin kalian gunakan, atau <b>klik "New"</b> untuk buat database baru.</li>
+  <li><b><i>Masuk ke tab "Import"</i></b> di menu phpMyAdmin.</li>
+  <li><b><i>Upload file .sql</i></b> yang sudah kalian buat tadi, lalu klik tombol <b>"Go"</b> untuk mulai proses impor.</li>
+</ol>
+
+<hr class="my-4" />
+
+          <pre>
+            <code>
+
+-- 1. Buat dulu databasenya
+CREATE DATABASE tugas_11_rpl_1;
+
+-- 2. Gunakan database tersebut
+USE tugas_11_rpl_1;
+
+-- 3. Buat tabel anggota_perpustakaan
+CREATE TABLE anggota_perpustakaan (
+    ID INT PRIMARY KEY,
+    Nama_Lengkap VARCHAR(100),
+    NIM_ID_Anggota VARCHAR(10),
+    Jenis_Kelamin ENUM('Laki-laki', 'Perempuan'),
+    Tanggal_Lahir DATE,
+    Alamat VARCHAR(255),
+    No_Telepon VARCHAR(15),
+    Email VARCHAR(100),
+    Status_Anggota ENUM('Aktif', 'Tidak Aktif'),
+    Tanggal_Bergabung DATE
+);
+
+-- 4. Masukkan data ke tabel
+INSERT INTO anggota_perpustakaan (ID, Nama_Lengkap, NIM_ID_Anggota, Jenis_Kelamin, Tanggal_Lahir, Alamat, No_Telepon, Email, Status_Anggota, Tanggal_Bergabung)
+VALUES 
+(1, 'Andi Pratama', 'A001', 'Laki-laki', '2000-01-12', 'Jl. Merpati No.1', '081234567890', 'andi@example.com', 'Aktif', '2022-03-15'),
+(2, 'Siti Rahmawati', 'A002', 'Perempuan', '1999-05-30', 'Jl. Kenari No.5', '081298765432', 'siti.rahma@example.com', 'Aktif', '2021-11-20'),
+(3, 'Bambang Suharto', 'A003', 'Laki-laki', '1998-07-19', 'Jl. Cendana No.9', '082112345678', 'bambang@example.com', 'Tidak Aktif', '2020-09-10'),
+(4, 'Dewi Lestari', 'A004', 'Perempuan', '2001-03-08', 'Jl. Melati No.3', '083812345679', 'dewi.lestari@example.com', 'Aktif', '2023-01-05'),
+(5, 'Rizky Hidayat', 'A005', 'Laki-laki', '2000-12-25', 'Jl. Anggrek No.7', '085612345680', 'rizky.hidayat@example.com', 'Aktif', '2022-07-18'),
+(6, 'Fitri Anjani', 'A006', 'Perempuan', '1997-09-14', 'Jl. Dahlia No.4', '081234567891', 'fitri.anjani@example.com', 'Tidak Aktif', '2019-06-22'),
+(7, 'Anton Wijaya', 'A007', 'Laki-laki', '1995-02-27', 'Jl. Flamboyan No.2', '085612345681', 'anton.wijaya@example.com', 'Aktif', '2021-04-09'),
+(8, 'Nisa Maulida', 'A008', 'Perempuan', '2002-10-11', 'Jl. Mawar No.8', '083812345682', 'nisa.maulida@example.com', 'Aktif', '2023-05-30'),
+(9, 'Dedi Gunawan', 'A009', 'Laki-laki', '2001-06-05', 'Jl. Semangka No.6', '082112345683', 'dedi.gunawan@example.com', 'Tidak Aktif', '2020-12-12'),
+(10, 'Lina Kusuma', 'A010', 'Perempuan', '1998-08-17', 'Jl. Rambutan No.10', '081298765433', 'lina.kusuma@example.com', 'Aktif', '2022-10-01');
+
+              
+            </code>
+          </pre>
+        
+        </div></div></div></section>
+    
+  <hr class="my-5"/>
       <!-- Tombol Klikable -->
       <div class="container text-center">
         <a href="https://www.instagram.com/bibib_17/" target="_blank" rel="noopener noreferrer" class="instagram-button">
         <i class="fab fa-instagram"></i>
         Follow Instagram-nya Juga Ga Sih..
       </a>
-<!--         onclick="window.open('https://bibib17.github.io/basisdata_dasar.github.io/pertemuan4.html', '_blank')" -->
-      <button class="btn btn-primary" >
-        📊 Lanjut Belajar Materi Pertemuan Ke-4
+        
+      <button class="btn btn-primary" onclick="window.open('https://bibib17.github.io/basisdata_dasar.github.io/pertemuan5.html', '_blank')">
+        📊 Lanjut Belajar Materi Pertemuan Ke-%
       </button>
     </div>
     <hr class="my-5"/>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
