@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>Source Code Web Crud Paling Sederhana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --sage:#DEE8CE;
+      --terracotta:#C2826D;
+      --apricot:#D17652;
+      --sand:#F7C09A;
+      --ink:#1C1E21;
+    }
+
+    /* Base */
+    html, body { margin:0; padding:0; }
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* Header */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(90deg, var(--sage), var(--terracotta));
+      color: #000;
+      padding: 1rem 2rem;
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    /* Layout */
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* Grid -> kolom 12 (1 foto 1 baris) */
+    .grid{
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: 1fr; /* selalu 1 kolom di semua ukuran layar */
+      margin-top: 1.5rem;
+    }
+
+    /* Card & image */
+    .card{
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.10);
+      display: flex;
+      flex-direction: column;
+    }
+    .card h2{
+      margin: 0;
+      padding: .75rem 1rem;
+      background: var(--sage);
+      font-size: 1rem;
+      color: #333;
+    }
+    .thumb img{
+      display: block;
+      width: 100% !important; /* paksa full width */
+      height: auto !important;
+    }
+
+    /* Footer */
+    .footer{
+      text-align: center;
+      padding: 1.5rem;
+      color: #555;
+      font-size: .9rem;
+      margin-top: 2rem;
+    }
+    .badges{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; }
+    .badge{
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .35rem .6rem;
+      border-radius: .75rem;
+      background: rgba(255,255,255,.75);
+      color: #333;
+      font-size: .8rem;
+    }
+    .color-dot{ width: 14px; height: 14px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <div class="header">Galeri Source Code CRUD</div>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h2>produk.sql</h2>
+        <div class="thumb">
+          <img src="produk.sql.png" alt="produk.sql" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>koneksi.php</h2>
+        <div class="thumb">
+          <img src="koneksi.php.png" alt="koneksi.php" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>header.php</h2>
+        <div class="thumb">
+          <img src="header.php.png" alt="header.php" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>footer.php</h2>
+        <div class="thumb">
+          <img src="footer.php.png" alt="footer.php" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>index.php</h2>
+        <div class="thumb">
+          <img src="index.php.png" alt="index.php" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>tambah.php</h2>
+        <div class="thumb">
+          <img src="tambah.php.png" alt="tambah.php" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>edit.php</h2>
+        <div class="thumb">
+          <img src="edit.php.png" alt="edit.php" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>hapus.php</h2>
+        <div class="thumb">
+          <img src="hapus.php.png" alt="hapus.php" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+ 
+  </div>
+</body>
+</html>
